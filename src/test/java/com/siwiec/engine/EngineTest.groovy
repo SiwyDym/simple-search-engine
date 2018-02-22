@@ -11,7 +11,7 @@ class EngineTest extends Specification {
     def "check if sorting TF-IDF is working well "() {
         given:
         def searchValue = "fox"
-        List<Document> documentList = new ArrayList<>()
+        List<Document> documentList = new ArrayList<Document>()
         documentList.add(new Document("fox is fox when is fox"))
         documentList.add(new Document("fox is fox when is know body"))
         documentList.add(new Document("fox is fox"))
