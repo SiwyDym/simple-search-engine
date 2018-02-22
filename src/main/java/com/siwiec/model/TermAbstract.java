@@ -19,11 +19,9 @@ public class TermAbstract{
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o instanceof Term) {
-            Term term = (Term) o;
+        if (o instanceof TermAbstract) {
+            TermAbstract term = (TermAbstract) o;
             return Objects.equals(name, term.getName());
-        } else if (o instanceof String) {
-            return Objects.equals(name, o);
         }
         return false;
     }

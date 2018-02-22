@@ -1,35 +1,31 @@
 package com.siwiec.model;
 
-import java.util.Objects;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 /**
  * Created by emarsiw on 2018-02-21.
  */
 public class Term extends TermAbstract{
 
-    private Integer globalWeight; // weight per all collection documents
-    private Integer localWeight;  // weight in document
+    private double globalWeight; // weight per all collection documents
+    private double localWeight;  // weight in document
     private Integer nrOfOccurence = 0;
 
-    public Term(String name) {
+    public Term(String name, Integer sizeOfAllTerms) {
         super(name);
+        reSumLocalWeight(sizeOfAllTerms);
     }
 
-    public Integer getGlobalWeight() {
-        return globalWeight;
-    }
-
-    public void setGlobalWeight(Integer globalWeight) {
-        this.globalWeight = globalWeight;
-    }
-
-    public Integer getLocalWeight() {
-        return localWeight;
+    public double getLocalWeight() {
+        return BigDecimal.valueOf(localWeight)
+                .setScale(2, RoundingMode.HALF_UP)
+                .doubleValue();
     }
 
     void reSumLocalWeight(Integer sizeOfAllTerms) {
         nrOfOccurence++;
-        this.localWeight = nrOfOccurence / sizeOfAllTerms;
+        this.localWeight = (double) nrOfOccurence / (double) sizeOfAllTerms;
     }
 
 }
