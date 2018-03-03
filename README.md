@@ -3,7 +3,7 @@
 
 Simple search app wrote in Java. Engine is implemented as an inverted index. Divide Document on distinct terms with computed only naive(local) weight.
 
-##Assumption
+### Assumption
 `The search engine should:`
 
 1. be able to take in a list of documents
